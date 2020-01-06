@@ -1,0 +1,18 @@
+Package: semverutils
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.1
+Authors@R: 
+    person(given = "First",
+           family = "Last",
+           role = c("aut", "cre"),
+           email = "first.last@example.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: What the package does (one paragraph).
+Encoding: UTF-8
+LazyData: true
+Imports: 
+  R6,
+Suggests:
+  roxygen2
+License: file LICENSE
+RoxygenNote: 7.0.2
