@@ -12,7 +12,7 @@ semVer <- R6Class("semVer",
                           if(Version == ""){
                             private$Version <- "0.0.0"
                           }else{
-                            private$Version <<- Version
+                            self$version <- Version
                             
                           }
                           if(SemVerVersion == ""){
