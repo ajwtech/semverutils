@@ -7,8 +7,25 @@ library(R6)
 #' @keywords data
 #' 
 semVer <- R6Class("semVer",
-                  public = list(SemVerVersion = "2.0.0",
-                                  initialize = function( Version = "", SemVerVersion = ""){
+                  public = list(
+                    higherThanAll =  function(versions) {
+                    semVer200Parser <- "^(?P<major>0|[1-9]\\d*)\\.(?P<minor>0|[1-9]\\d*)\\.(?P<patch>0|[1-9]\\d*)(?:-(?P<prerelease>(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+(?P<build>[0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+                    parsedVersion <- regexpr(semVer200Parser, versions, perl = TRUE)
+                    if(-1 %in% parsedVersion){warning("Not all of the strings passed are compliant with Semantic Versioning")}
+                    #Run the comp, return  True or false
+                    if(private$Version %in% versions){
+                      return(FALSE)
+                    }else{
+                      if(private$Version == sort(unlist(c(private$Version,versions)),TRUE)[1]){
+                        return(TRUE)
+                      }else{
+                        return(FALSE)
+                      }
+                      
+                    }
+                  },
+                  SemVerVersion = "2.0.0",
+                  initialize = function( Version = "", SemVerVersion = ""){
                           if(Version == ""){
                             private$Version <- "0.0.0"
                           }else{
@@ -23,18 +40,7 @@ semVer <- R6Class("semVer",
                           #Add call to Parse my version string
                         }),
                   active = list(
-                    higherThanAny =  function(...) {
-                      semVer200Parser <- "^(?P<major>0|[1-9]\\d*)\\.(?P<minor>0|[1-9]\\d*)\\.(?P<patch>0|[1-9]\\d*)(?:-(?P<prerelease>(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+(?P<build>[0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
-                      parsedVersion <- regexpr(semVer200Parser, ..., perl = TRUE)
-                      if(-1 %in% parsedVersion){warning("Not all of the strings passed are compliant with Semantic Versioning")}
-                      #Run the comp, return  True or false
-                      version <- list(...)
-                      if(private$Version %in% version){
-                        return(FALSE)
-                      }else{
-                        ifelse((private$Version == sort(c(private$Version,version),TRUE)[1]),return(TRUE),return(FALSE))
-                      }
-                    },
+                    
                     version = function(version = private$Version){
                           if (version == private$Version){return(private$Version)}
                       
