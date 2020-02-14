@@ -6,9 +6,9 @@ Authors@R:
            family = "Wheeler",
            role = c("aut", "cre", "cph"),
            email = "ajwtech@gmail.com")
-Description: This package allows for management of semantic versions in R.
-    The package uses R6 to create a mutable object that can handle deciphering.
-    and checking semantic versions. 
+Description: Semantic Versioning allows for standardized management versions. 
+    This package implements semantic versioning handling in R. using R6 to 
+    create a mutable object that can handle deciphering and checking versions. 
 License: MIT + file LICENSE
 Url: https://github.com/ajwtech/semverutils
 BugReports: https://github.com/ajwtech/semverutils/issues
