@@ -1,2 +1,6 @@
 ^semverutils\.Rproj$
 ^\.Rproj\.user$
+^cran-comments\.md$
+^LICENSE\.md$
+^README\.Rmd$
+^\.travis\.yml$
