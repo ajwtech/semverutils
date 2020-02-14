@@ -1,18 +1,23 @@
 Package: semverutils
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.2
+Title: Semantic Version Utilities
+Version: 0.1.0
 Authors@R: 
-    person(given = "First",
-           family = "Last",
-           role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person(given = "Adam",
+           family = "Wheeler",
+           role = c("aut", "cre", "cph"),
+           email = "ajwtech@gmail.com")
+Description: This package allows for management of semantic versions in R.
+    The package uses R6 to create a mutable object that can handle deciphering.
+    and checking semantic versions. 
+License: MIT + file LICENSE
+Url: https://github.com/ajwtech/semverutils
+BugReports: https://github.com/ajwtech/semverutils/issues
 Encoding: UTF-8
 LazyData: true
 Imports: 
   R6,
+  foreach
 Suggests:
-  roxygen2
-License: file LICENSE
+    roxygen2,
+    testthat (>= 2.1.0)
 RoxygenNote: 7.0.2

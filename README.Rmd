@@ -4,7 +4,14 @@ output: github_document
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
 
 # semverutils
 
@@ -32,12 +39,9 @@ devtools::install_github("ajwtech/semverutils")
 
 This is a basic example which shows you how to solve a common problem:
 
-
-```r
+```{r example}
 library(semverutils)
 sem <- semVer$new("3.0.0-alpha.1+build.341193")
 sem$higherThanAll(c("2.0.2+build.341193", "0.1.0"))
-#> [1] TRUE
 sem$getMajor
-#> [1] "3"
 ```

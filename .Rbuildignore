@@ -1,2 +1,5 @@
 ^semverutils\.Rproj$
 ^\.Rproj\.user$
+^cran-notes\.md$
+^LICENSE\.md$
+^README\.Rmd$
